@@ -41,8 +41,8 @@ class BookController extends Controller
         $rules = [
             'title' => 'required|max:255',
             'description' => 'required|max:255',
-            'price' => 'required|max:11',
-            'author_id' => 'required|max:11'
+            'price' => 'required|numeric|min:1',
+            'author_id' => 'required|numeric|min:1'
         ];
 
         $this->validate($request, $rules);
@@ -72,8 +72,8 @@ class BookController extends Controller
         $rules = [
             'title' => 'max:255',
             'description' => 'max:255',
-            'price' => 'max:11',
-            'author_id' => 'max:11'
+            'price' => 'numeric|min:1',
+            'author_id' => 'numeric|min:1'
         ];
 
         $this->validate($request, $rules);
