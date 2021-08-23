@@ -22,9 +22,10 @@ class BookFactory extends Factory
     public function definition()
     {
         return [
-            'genre' => $this->faker->randomElement(['sci-fi', 'drama', 'instructional']),
-            'name' => $this->faker->name(),
-            'author' => random_int(1,50),
+            'title' => $this->faker->sentence(3, true),
+            'description' => $this->faker->sentence(6, true),
+            'price' => $this->faker->numberBetween(25, 150),
+            'author_id' => $this->faker->numberBetween(1, 50)
         ];
     }
 }
