@@ -2,7 +2,7 @@
 
 ## Run Server
 
-php -S localhost:8002 -t public
+php -S localhost:8001 -t public
 
 ## License
 
