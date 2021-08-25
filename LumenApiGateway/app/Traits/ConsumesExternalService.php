@@ -14,11 +14,11 @@ trait ConsumesExternalService
 	public function performRequest($method, $requestUrl, $formParams = [], $headers = [])
 	{
 		$client = new Client([
-            'base_url' => $this->baseUri,
+            'base_uri' => $this->baseUri,
         ]);
 
 		$response = $client->request($method, $requestUrl, [
-			'form_params' => $formParams, 'headers' => $headers
+			'form_params' => $formParams, 'headers' => $headers, 'proxy' => ""
 		]);
 
 		return $response->getBody()->getContents();

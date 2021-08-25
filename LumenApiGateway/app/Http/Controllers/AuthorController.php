@@ -33,8 +33,9 @@ class AuthorController extends Controller
      *
      * @return Illuminate\Http\Response
      */
-    public function index() {
-      
+    public function index() 
+    {
+        return $this->successResponse($this->authorService->obtainAuthors());
     }
 
     /**
@@ -42,7 +43,8 @@ class AuthorController extends Controller
      *
      * @return Illuminate\Http\Response
      */
-    public function store(Request $request) {
+    public function store(Request $request) 
+    {
        
     }
 
@@ -51,7 +53,8 @@ class AuthorController extends Controller
      *
      * @return Illuminate\Http\Response
      */
-    public function show(int $author) {
+    public function show(int $author) 
+    {
       
     }
 
@@ -60,7 +63,8 @@ class AuthorController extends Controller
      *
      * @return Illuminate\Http\Response
      */
-    public function update(Request $request, int $author) {
+    public function update(Request $request, int $author) 
+    {
      
     }
 
@@ -69,7 +73,8 @@ class AuthorController extends Controller
      *
      * @return Illuminate\Http\Response
      */
-    public function destroy(int $author) {
+    public function destroy(int $author) 
+    {
       
     }
 }
