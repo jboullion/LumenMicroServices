@@ -33,8 +33,9 @@ class BookController extends Controller
      *
      * @return Illuminate\Http\Response
      */
-    public function index() {
-       
+    public function index() 
+    {
+        return $this->successResponse($this->bookService->obtainBooks());
     }
 
     /**
@@ -42,8 +43,9 @@ class BookController extends Controller
      *
      * @return Illuminate\Http\Response
      */
-    public function store(Request $request) {
-       
+    public function store(Request $request) 
+    {
+       return $this->successResponse($this->bookService->createBook($request->all()), Response::HTTP_CREATED);
     }
 
     /**
@@ -51,8 +53,9 @@ class BookController extends Controller
      *
      * @return Illuminate\Http\Response
      */
-    public function show(int $book) {
-       
+    public function show(int $book) 
+    {
+        return $this->successResponse($this->bookService->obtainBook($book));
     }
 
     /**
@@ -60,8 +63,9 @@ class BookController extends Controller
      *
      * @return Illuminate\Http\Response
      */
-    public function update(Request $request, int $book) {
-       
+    public function update(Request $request, int $book) 
+    {
+        return $this->successResponse($this->bookService->updateBook($request->all(), $book));
     }
 
     /**
@@ -69,7 +73,8 @@ class BookController extends Controller
      *
      * @return Illuminate\Http\Response
      */
-    public function destroy(int $book) {
-      
+    public function destroy(int $book) 
+    {
+        return $this->successResponse($this->bookService->destroyBook($book));
     }
 }

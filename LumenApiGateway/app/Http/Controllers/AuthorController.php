@@ -23,7 +23,7 @@ class AuthorController extends Controller
      *
      * @return void
      */
-    public function __construct(AuthorService $authorService)
+    public function __construct(AuthorService $authorService) 
     {
         $this->authorService = $authorService;
     }
@@ -45,7 +45,7 @@ class AuthorController extends Controller
      */
     public function store(Request $request) 
     {
-       
+       return $this->successResponse($this->authorService->createAuthor($request->all()), Response::HTTP_CREATED);
     }
 
     /**
@@ -55,7 +55,7 @@ class AuthorController extends Controller
      */
     public function show(int $author) 
     {
-      
+        return $this->successResponse($this->authorService->obtainAuthor($author));
     }
 
     /**
@@ -65,7 +65,7 @@ class AuthorController extends Controller
      */
     public function update(Request $request, int $author) 
     {
-     
+        return $this->successResponse($this->authorService->updateAuthor($request->all(), $author));
     }
 
     /**
@@ -75,6 +75,6 @@ class AuthorController extends Controller
      */
     public function destroy(int $author) 
     {
-      
+        return $this->successResponse($this->authorService->destroyAuthor($author));
     }
 }
