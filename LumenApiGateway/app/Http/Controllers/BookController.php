@@ -40,7 +40,7 @@ class BookController extends Controller
     /**
      * Return the list of books
      *
-     * @return Illuminate\Http\Response
+     * @return Illuminate\Http\JsonResponse
      */
     public function index() 
     {
@@ -50,7 +50,7 @@ class BookController extends Controller
     /**
      * create one new book
      *
-     * @return Illuminate\Http\Response
+     * @return Illuminate\Http\JsonResponse
      */
     public function store(Request $request) 
     {
@@ -62,7 +62,7 @@ class BookController extends Controller
     /**
      * Return a single book
      *
-     * @return Illuminate\Http\Response
+     * @return Illuminate\Http\JsonResponse
      */
     public function show(int $book) 
     {
@@ -72,7 +72,7 @@ class BookController extends Controller
     /**
      * Update an book
      *
-     * @return Illuminate\Http\Response
+     * @return Illuminate\Http\JsonResponse
      */
     public function update(Request $request, int $book) 
     {
@@ -82,7 +82,7 @@ class BookController extends Controller
     /**
      * Destroy an book
      *
-     * @return Illuminate\Http\Response
+     * @return Illuminate\Http\JsonResponse
      */
     public function destroy(int $book) 
     {

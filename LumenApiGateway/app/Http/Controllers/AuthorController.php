@@ -31,7 +31,7 @@ class AuthorController extends Controller
     /**
      * Return the list of authors
      *
-     * @return Illuminate\Http\Response
+     * @return Illuminate\Http\JsonResponse
      */
     public function index() 
     {
@@ -41,7 +41,7 @@ class AuthorController extends Controller
     /**
      * create one new author
      *
-     * @return Illuminate\Http\Response
+     * @return Illuminate\Http\JsonResponse
      */
     public function store(Request $request) 
     {
@@ -51,7 +51,7 @@ class AuthorController extends Controller
     /**
      * Return a single author
      *
-     * @return Illuminate\Http\Response
+     * @return Illuminate\Http\JsonResponse
      */
     public function show(int $author) 
     {
@@ -61,7 +61,7 @@ class AuthorController extends Controller
     /**
      * Update an author
      *
-     * @return Illuminate\Http\Response
+     * @return Illuminate\Http\JsonResponse
      */
     public function update(Request $request, int $author) 
     {
@@ -71,7 +71,7 @@ class AuthorController extends Controller
     /**
      * Destroy an author
      *
-     * @return Illuminate\Http\Response
+     * @return Illuminate\Http\JsonResponse
      */
     public function destroy(int $author) 
     {

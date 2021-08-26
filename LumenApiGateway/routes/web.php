@@ -42,3 +42,10 @@ Route::group(['middleware' => 'client.credentials'], function(){
 	Route::delete('/users/{user}', 'UserController@destroy');
 });
 
+
+/**
+ * User credentials protected routes
+ */
+Route::group(['middleware' => 'auth:api'], function(){
+	Route::get("/users/me", 'UserController@me');
+});

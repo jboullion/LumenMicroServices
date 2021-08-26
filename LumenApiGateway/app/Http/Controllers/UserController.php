@@ -26,7 +26,7 @@ class UserController extends Controller
     /**
      * Return the list of users
      *
-     * @return Illuminate\Http\Response
+     * @return Illuminate\Http\JsonResponse
      */
     public function index() {
         $users = User::all();
@@ -37,12 +37,12 @@ class UserController extends Controller
     /**
      * create one new user
      *
-     * @return Illuminate\Http\Response
+     * @return Illuminate\Http\JsonResponse
      */
     public function store(Request $request) {
         $rules = [
             'name' => 'required|max:255',
-            'email' => 'required|email|unique:user,email',
+            'email' => 'required|email|unique:users,email',
             'password' => 'required|min:8|confirmed',
         ];
 
@@ -60,7 +60,7 @@ class UserController extends Controller
     /**
      * Return a single user
      *
-     * @return Illuminate\Http\Response
+     * @return Illuminate\Http\JsonResponse
      */
     public function show(int $user) {
         $user = User::findOrFail($user);
@@ -79,7 +79,7 @@ class UserController extends Controller
     public function update(Request $request, int $user) {
         $rules = [
             'name' => 'max:255',
-            'email' => 'email|unique:user,email,'.$user,
+            'email' => 'email|unique:users,email,'.$user,
             'password' => 'min:8|confirmed',
         ];
 
@@ -105,7 +105,7 @@ class UserController extends Controller
     /**
      * Destroy an user
      *
-     * @return Illuminate\Http\Response
+     * @return Illuminate\Http\JsonResponse
      */
     public function destroy(int $user) {
         $user = User::findOrFail($user);
@@ -113,5 +113,15 @@ class UserController extends Controller
         $user->delete();
 
         return $this->validResponse($user);
+    }
+
+    /**
+     * Identify an existing user
+     *
+     * @return Illuminate\Http\JsonResponse
+     */
+    public function me(Request $request)
+    {
+        return $this->validResponse($request->user());
     }
 }
