@@ -33,5 +33,12 @@ Route::group(['middleware' => 'client.credentials'], function(){
 	Route::put('/books/{book}', 'BookController@update'); // full update
 	Route::patch('/books/{book}', 'BookController@update'); // partial update
 	Route::delete('/books/{book}', 'BookController@destroy');
+
+	Route::get('/users', 'UserController@index');
+	Route::post('/users', 'UserController@store');
+	Route::get('/users/{user}', 'UserController@show');
+	Route::put('/users/{user}', 'UserController@update'); // full update
+	Route::patch('/users/{user}', 'UserController@update'); // partial update
+	Route::delete('/users/{user}', 'UserController@destroy');
 });
 
